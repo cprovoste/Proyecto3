@@ -11,18 +11,20 @@ package proyecto3;
  */
 public class Jugador {
     
-    private Partida partida;
+    private String nombre;
 
-    public Jugador(Partida partida) {
-        this.partida = partida;
+    public Jugador(String nombre) {
+        this.nombre = nombre;
     }
 
-    public Partida getPartida() {
-        return partida;
+
+
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setPartida(Partida partida) {
-        this.partida = partida;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     
