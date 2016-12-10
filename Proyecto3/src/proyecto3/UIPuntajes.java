@@ -60,6 +60,27 @@ public class UIPuntajes extends Stage implements EventHandler {
         tableNivel = new TableView<>();
         panelCentral.getChildren().addAll(tableGeneral, tableNivel);
         
+        TableColumn nombreGeneral = new TableColumn("Nombre");
+        nombreGeneral.setMinWidth(100);
+        nombreGeneral.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        TableColumn fechaGeneral = new TableColumn("Fecha");
+        fechaGeneral.setMinWidth(100);
+        fechaGeneral.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        TableColumn puntajeGeneral = new TableColumn("Puntaje");
+        puntajeGeneral.setMinWidth(200);
+        puntajeGeneral.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
+        tableGeneral.getColumns().addAll(nombreGeneral, fechaGeneral, puntajeGeneral);
+        
+        TableColumn nombreNivel = new TableColumn("Nombre");
+        nombreNivel.setMinWidth(100);
+        nombreNivel.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        TableColumn fechaNivel = new TableColumn("Fecha");
+        fechaNivel.setMinWidth(100);
+        fechaNivel.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        TableColumn puntajeNivel = new TableColumn("Puntaje");
+        puntajeNivel.setMinWidth(200);
+        puntajeNivel.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
+        tableNivel.getColumns().addAll(nombreNivel, fechaNivel, puntajeNivel);
     }
 
     @Override

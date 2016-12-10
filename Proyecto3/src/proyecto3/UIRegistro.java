@@ -58,18 +58,18 @@ public class UIRegistro extends Stage implements EventHandler {
 
         BorderPane panelCentral = new BorderPane();
 
-        Label nombre = new Label("Nombre: "); //username label
+        Label nombre = new Label("Nombre: "); 
         this.nombreTF = new TextField ();
         HBox nombreBox = new HBox();
         nombreBox.getChildren().addAll(nombre, nombreTF);
         nombreBox.setSpacing(10);
 
-        Label score = new Label("Score: "); //nombre label
+        Label score = new Label("Score: "); 
         HBox scoreBox = new HBox();
         scoreBox.getChildren().addAll(score);
         scoreBox.setSpacing(55);
 
-        Label fecha = new Label("Fecha"); //email label
+        Label fecha = new Label("Fecha");
         HBox fechaBox = new HBox();
         fechaBox.getChildren().addAll(fecha);
         fechaBox.setSpacing(103);
