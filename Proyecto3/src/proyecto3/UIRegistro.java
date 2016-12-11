@@ -41,8 +41,10 @@ public class UIRegistro extends Stage implements EventHandler {
     private Button agregar;
     private TextField nombreTF;
     private UIJuego principal;
-    
-    public void start(Stage primaryStage) {
+
+    public UIRegistro(UIJuego principal) {
+        
+        this.principal = principal;
         super.setTitle("Registro");
         StackPane root = new StackPane();
 
@@ -69,7 +71,7 @@ public class UIRegistro extends Stage implements EventHandler {
         scoreBox.getChildren().addAll(score);
         scoreBox.setSpacing(55);
 
-        Label fecha = new Label("Fecha");
+        Label fecha = new Label("Fecha: ");
         HBox fechaBox = new HBox();
         fechaBox.getChildren().addAll(fecha);
         fechaBox.setSpacing(103);
@@ -105,14 +107,7 @@ public class UIRegistro extends Stage implements EventHandler {
         this.agregar.setOnAction(this);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-     public void agregarJugador()
+     public void agregarPartida()
     {
         String nombre = this.nombreTF.getText();
       //  String score =
@@ -126,7 +121,7 @@ public class UIRegistro extends Stage implements EventHandler {
     public void handle(Event event) {
          if( event.getSource() == this.agregar )
         {
-            agregarJugador();
+            agregarPartida();
         } 
     }
     
