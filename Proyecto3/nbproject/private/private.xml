@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Nivel.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Partida.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Jugador.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Episodio.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Proyecto3.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Main.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/painter/Cargador.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/painter/Pintador.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Bloque.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/UIPuntajes.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Tipo.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/CircusCrush.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/UIRegistro.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Dimension.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/UIJuego.java</file>
+            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Cuadrado.java</file>
         </group>
     </open-files>
 </project-private>
