@@ -61,17 +61,6 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
             this.repintar();
         }
         
-        
-        if( event.getEventType() == MouseEvent.MOUSE_PRESSED )
-        {
-            MouseEvent me = (MouseEvent)event;
-            this.circusCrush.setIniciado(true);
-        }
-        else if( event.getEventType() == MouseEvent.MOUSE_DRAGGED )
-        {
-            MouseEvent me = (MouseEvent)event;
-        }
-        
     }
 
     @Override

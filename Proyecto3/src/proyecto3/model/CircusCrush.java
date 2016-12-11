@@ -5,9 +5,6 @@
  */
 package proyecto3.model;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 /**
  *
  * @author Claudia
@@ -18,24 +15,22 @@ public class CircusCrush {
     static private final int ANCHO_BLOQUE = 64;
     
     private Dimension mundo;
-    private ArrayList<Bloque> bloques;   
-    
-    private boolean iniciado;
+    private Bloque bloques[][];   
     
     public CircusCrush(int width,  int height)
     {
         this.mundo = new Dimension(width, height);
         
-        int cantidadBloquesHorizontales = 9;
+        int cantidadBloquesHorizontales = 5;
         int cantidadBloquesVerticales = 8;
         
-        this.bloques = new ArrayList<>();
+        this.bloques = new Bloque[cantidadBloquesHorizontales][cantidadBloquesVerticales];
         int x = (width - cantidadBloquesHorizontales*ANCHO_BLOQUE)/2;
         int y = (width - cantidadBloquesHorizontales*ANCHO_BLOQUE)/2;
         
-        for (int i = 0; i < cantidadBloquesVerticales; i++)
+        for (int i = 0; i < cantidadBloquesHorizontales; i++)
         {
-            for (int j = 0; j < cantidadBloquesHorizontales; j++)
+            for (int j = 0; j < cantidadBloquesVerticales; j++)
             {
                 
                 Tipo tipo = Tipo.CABALLO;
@@ -50,12 +45,9 @@ public class CircusCrush {
                 }
                 
                 Bloque bloque = new Bloque(x + j*ANCHO_BLOQUE, y + i*ANCHO_BLOQUE, ANCHO_BLOQUE, ANCHO_BLOQUE, tipo);
-                this.bloques.add(bloque);
+                this.bloques[i][j] = bloque;
             }
         }
-        
-        
-        this.iniciado = false;
     }
     
      public Dimension getMundo()
@@ -63,23 +55,9 @@ public class CircusCrush {
         return this.mundo;
     }
 
-    public boolean isIniciado()
-    {
-        return iniciado;
-    }
-
-    public void setIniciado(boolean iniciado)
-    {
-        this.iniciado = iniciado;
-    }
-
-    public Iterator<Bloque> iterator()
-    {
-        return bloques.iterator();
-    }
-
      public void mover()
     {
         
     }
-}
+     
+    public 

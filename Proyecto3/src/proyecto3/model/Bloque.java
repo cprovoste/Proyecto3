@@ -12,11 +12,13 @@ package proyecto3.model;
 public class Bloque extends Cuadrado {
     
     private Tipo tipo;
+    private boolean eliminado;
 
     public Bloque(int x, int y, int width, int height, Tipo tipo)
     {
         super(x, y, width, height);
         this.tipo = tipo;
+        this.eliminado = false;
     }
 
     public Tipo getTipo()
@@ -29,4 +31,14 @@ public class Bloque extends Cuadrado {
         this.tipo = tipo;
     }
 
+    public boolean getEliminado() 
+    {
+        return this.eliminado;
+    }
+
+    public void setEliminado(boolean eliminado)
+    {
+        this.eliminado = eliminado;
+    }
+    
 }
