@@ -34,6 +34,8 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
 
     private CircusCrush circusCrush;
     private final GraphicsContext context;
+    private Punto punto;
+    private Punto punto1;
     
     public CircusCrushCanvas()
     {
@@ -60,9 +62,33 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
             this.mover();
             this.repintar();
         }
-        
+        if( event.getEventType() == MouseEvent.MOUSE_PRESSED )
+        {
+            MouseEvent me = (MouseEvent)event;
+            int x = (int)me.getX();
+            int y = (int)me.getY();
+            if(x>239&&x<552&&y>109&&y<541)
+            {
+                int nx = Pintador.convertirXACoordenadasMundo(x, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
+                int ny = Pintador.convertirYACoordenadasMundo(y, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
+                this.punto = new Punto(nx, ny);
+            }
+             
+        }
+        else if( event.getEventType() == MouseEvent.MOUSE_DRAGGED )
+        {
+            MouseEvent me = (MouseEvent)event;
+            int x = (int)me.getX();
+            int y = (int)me.getY();
+            if(x>239&&x<552&&y>109&&y<541)
+            {
+                int nx = Pintador.convertirXACoordenadasMundo(x, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
+                int ny = Pintador.convertirYACoordenadasMundo(y, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
+                this.punto1 = new Punto(nx, ny);
+                this.circusCrush.calculoMovimientos(punto, punto1);
+            }
+        }
     }
-
     @Override
     public void changed(ObservableValue observable, Object oldValue, Object newValue) {
        
@@ -80,7 +106,7 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
         
         if(this.circusCrush != null)
         {
-            System.out.println("Mundo W: " + circusCrush.getMundo().getWidth() + " Mundo H: " + circusCrush.getMundo().getHeight() +  " ||Ventana W: " + this.getWidth() + " Ventana H: " + this.getHeight());
+            //System.out.println("Mundo W: " + circusCrush.getMundo().getWidth() + " Mundo H: " + circusCrush.getMundo().getHeight() +  " ||Ventana W: " + this.getWidth() + " Ventana H: " + this.getHeight());
             Pintador.pintar(this.circusCrush, this.context, circusCrush.getMundo(), new Dimension((int)this.getWidth(), (int)this.getHeight()));
         }
     }
@@ -89,7 +115,5 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
     {
         this.circusCrush.mover();
     }
-    
-    
     
 }

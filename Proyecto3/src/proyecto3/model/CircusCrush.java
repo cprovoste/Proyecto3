@@ -5,6 +5,8 @@
  */
 package proyecto3.model;
 
+import javafx.scene.input.MouseEvent;
+
 /**
  *
  * @author Claudia Provoste y Samuel Paicil
@@ -18,17 +20,18 @@ public class CircusCrush {
     private Bloque bloques[][];   
     private int cantidadBloquesHorizontales;
     private int cantidadBloquesVerticales;
-    
+    private int x;
+    private int y;
     public CircusCrush(int width,  int height)
     {
         this.mundo = new Dimension(width, height);
         
-        this.cantidadBloquesHorizontales = 5;
-        this.cantidadBloquesVerticales = 8;
+        this.cantidadBloquesHorizontales = 9;
+        this.cantidadBloquesVerticales = 9;
         
         this.bloques = new Bloque[cantidadBloquesHorizontales][cantidadBloquesVerticales];
-        int x = (width - cantidadBloquesHorizontales*ANCHO_BLOQUE)/2;
-        int y = 2*ANCHO_BLOQUE;
+        x = (width - cantidadBloquesHorizontales*ANCHO_BLOQUE)/2;
+        y = 2*ANCHO_BLOQUE;
         
         for (int i = 0; i < cantidadBloquesHorizontales; i++)
         {
@@ -40,7 +43,7 @@ public class CircusCrush {
                 {
                     case 0: case 6: tipo = Tipo.SOMBRERO; break;
                     case 1: case 7: tipo = Tipo.CARPA; break;
-                    case 2: tipo = Tipo.CABALLO; break;
+                    case 2: case 8: tipo = Tipo.CABALLO; break;
                     case 3: tipo = Tipo.PALOMITA; break;
                     case 4: tipo = Tipo.TICKET; break;
                     case 5: tipo = Tipo.GLOBO; break;
@@ -90,6 +93,36 @@ public class CircusCrush {
     public void setCantidadBloquesVerticales(int cantidadBloquesVerticales)
     {
         this.cantidadBloquesVerticales = cantidadBloquesVerticales;
+    }
+    
+    public void calculoMovimientos(Punto p, Punto p1)
+    {
+        int b = (p.getX()-this.x)/ANCHO_BLOQUE;
+        int a = (p.getY()-this.y)/ANCHO_BLOQUE;
+        
+        System.out.println(a + "," + b);
+        
+        int d = (p1.getX()-this.x)/ANCHO_BLOQUE;
+        int c = (p1.getY()-this.y)/ANCHO_BLOQUE;
+        
+        System.out.println(c + "," + d);
+        
+        if(c-a!=d-b)
+        {
+            if (c - a >= 1)
+            {
+                
+            } else if (c - a <= -1)
+            {
+                
+            } else if (d - b >= 1)
+            {
+                
+            } else if (d - b <= -1)
+            {
+                
+            }
+        }
     }
 }
      

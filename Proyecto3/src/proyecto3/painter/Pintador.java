@@ -63,4 +63,13 @@ public class Pintador {
         return (int)(magnitud*diagonalVentana/diagonalMundo);
     }
     
+    static public int convertirXACoordenadasMundo(int x, Dimension mundo, Dimension ventana)
+    {
+        return x*mundo.getWidth()/ventana.getWidth();
+    }
+    
+    static public int convertirYACoordenadasMundo(int y, Dimension mundo, Dimension ventana)
+    {
+        return y*mundo.getHeight()/ventana.getHeight();
+    }
 }
