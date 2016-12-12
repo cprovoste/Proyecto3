@@ -1,3 +1,7 @@
+/**
+ * Stage principal, tiene un panel en donde se realiza el pintado del juego.
+ * Esta es la ventana principal donde ocurre el gameplay.
+ */
 
 package proyecto3;
 import javafx.beans.value.ChangeListener;
@@ -7,9 +11,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
@@ -19,7 +20,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import proyecto3.model.CircusCrushCanvas;
-import proyecto3.painter.Cargador;
 /**
  *
  * @author Claudia Provoste y Samuel Paicil
@@ -51,8 +51,6 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         this.registro.setPrefWidth(100);
         this.puntaje = new Button("puntaje");
         this.puntaje.setPrefWidth(100);
-        panelBotones.getChildren().addAll( this.registro, this.puntaje);
-        panelPrincipal.setBottom(panelBotones);
 
         CircusCrushCanvas paint = new CircusCrushCanvas();
         panelPrincipal.setCenter(paint);
@@ -60,7 +58,7 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         paint.widthProperty().bind(root.widthProperty());
         paint.heightProperty().bind(root.heightProperty());
 
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 400, 400);
         super.setScene(scene);
 
         this.registro.setOnAction(this);

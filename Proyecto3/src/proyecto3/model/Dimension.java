@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Dimension pide altura y ancho, es usado al momento de pasar las coordenadas de mundo a ventana
+ * y viceversa.
  */
+
 package proyecto3.model;
 
 /**
@@ -11,7 +11,7 @@ package proyecto3.model;
  */
 public class Dimension {
     
-     private int width;
+    private int width;
     private int height;
 
     public Dimension(int width, int height)

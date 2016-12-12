@@ -1,8 +1,12 @@
+/**
+ * Punto posiciona bloques dentro del Stage.
+ */
+
 package proyecto3.model;
 
 /**
  *
- * @author Usuario
+ * @author Claudia Provoste y Samuel Paicil
  */
 public class Punto
 {

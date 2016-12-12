@@ -1,3 +1,7 @@
+/**
+ * En esta clase comienza la ejecución del programa y muestra UIJuego, que hace
+ * que comience todo el gameplay.
+ */
 package proyecto3;
 
 import javafx.application.Application;

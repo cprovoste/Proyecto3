@@ -1,8 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Cargador obtiene las imágenes usadas en el proyecto, llamándolas desde la carpeta correspondiente.
  */
+
 package proyecto3.painter;
 
 import java.util.HashMap;

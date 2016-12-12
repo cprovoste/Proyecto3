@@ -5,20 +5,16 @@
             <url>src/proyecto3/painter/Pintador.java</url>
             <bookmark id="1">
                 <name/>
-                <line>21</line>
+                <line>19</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Partida.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/UIJuego.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Main.java</file>
             <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/CircusCrushCanvas.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Dimension.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Tipo.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/CircusCrush.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Cuadrado.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Bloque.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,17 +1,13 @@
+
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * En este Canvas se mantiene actualizado el pintado de los bloques y se manejan
+ * todos los eventos del mouse. Además, se mantienen los márgenes clickeables por
+ * el usuario.
  */
 package proyecto3.model;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -19,9 +15,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import proyecto3.model.Dimension;
@@ -41,15 +35,13 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
     
     public CircusCrushCanvas()
     {
-        this.circusCrush = new CircusCrush(1366, 768);
+        this.circusCrush = new CircusCrush(500, 500);
         this.context = super.getGraphicsContext2D();
         
-         //agrego eventos del mouse
         this.addEventHandler(MouseEvent.MOUSE_PRESSED, this);
         this.addEventHandler(MouseEvent.MOUSE_DRAGGED, this);
         this.addEventHandler(MouseEvent.MOUSE_MOVED, this);
         
-        //agrego eventos de cambios del tamano 
         this.widthProperty().addListener(this);
         this.heightProperty().addListener(this);
         
@@ -68,7 +60,7 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
             MouseEvent me = (MouseEvent)event;
             int x = (int)me.getX();
             int y = (int)me.getY();
-            if(x>239&&x<552&&y>109&&y<541)
+            if(x>81&&x<322&&y>110&&y<349) //pésimo!!! (es más que malo)
             {
                 int nx = Pintador.convertirXACoordenadasMundo(x, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
                 int ny = Pintador.convertirYACoordenadasMundo(y, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
@@ -81,7 +73,7 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
             MouseEvent me = (MouseEvent)event;
             int x = (int)me.getX();
             int y = (int)me.getY();
-            if(x>239&&x<550&&y>109&&y<537)
+            if(x>76&&x<322&&y>110&&y<355)
             {
                 int nx = Pintador.convertirXACoordenadasMundo(x, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
                 int ny = Pintador.convertirYACoordenadasMundo(y, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
@@ -112,7 +104,6 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
         
         if(this.circusCrush != null)
         {
-            //System.out.println("Mundo W: " + circusCrush.getMundo().getWidth() + " Mundo H: " + circusCrush.getMundo().getHeight() +  " ||Ventana W: " + this.getWidth() + " Ventana H: " + this.getHeight());
             Pintador.pintar(this.circusCrush, this.context, circusCrush.getMundo(), new Dimension((int)this.getWidth(), (int)this.getHeight()));
         }
     }

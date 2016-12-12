@@ -1,14 +1,12 @@
+
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Pintador se encarga de "pintar" (mostrar en la ventana) los bloques del juego y también regula las dimensiones de este pintado
+ * de forma que las dimensiones del juego se mantengan sin importar los cambios al tamaño de la ventana.
  */
 package proyecto3.painter;
 
 
-import java.util.Iterator;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import proyecto3.model.Bloque;
 import proyecto3.model.Dimension;
 import proyecto3.model.CircusCrush;

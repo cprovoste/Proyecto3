@@ -1,8 +1,9 @@
+
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Partida contiene un jugador, las vidas de la partida y el puntaje de ésta.
+ * La información de esta clase es la que va a las tablas de highscores.
  */
+
 package proyecto3;
 
 /**
@@ -13,7 +14,7 @@ public class Partida {
 
     private int vidas;
     
-    public Partida() {
+    public Partida(int vidas) {
             
         this.vidas = vidas;
         
