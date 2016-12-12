@@ -34,7 +34,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 /**
  *
- * @author Claudia
+ * @author Claudia Provoste y Samuel Paicil
  */
 public class UIRegistro extends Stage implements EventHandler {
     

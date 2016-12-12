@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
 
 /**
  *
- * @author Claudia
+ * @author Claudia Provoste y Samuel Paicil
  */
 public class Cargador {
      static private final HashMap<String, Image> IMAGENES = new HashMap<>();

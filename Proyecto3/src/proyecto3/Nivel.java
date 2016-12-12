@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Claudia
+ * @author Claudia Provoste y Samuel Paicil
  */
 public class Nivel {
 

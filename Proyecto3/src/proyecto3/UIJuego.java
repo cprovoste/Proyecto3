@@ -22,7 +22,7 @@ import proyecto3.model.CircusCrushCanvas;
 import proyecto3.painter.Cargador;
 /**
  *
- * @author Claudia
+ * @author Claudia Provoste y Samuel Paicil
  */
 public class UIJuego extends Stage implements EventHandler, ChangeListener {
 

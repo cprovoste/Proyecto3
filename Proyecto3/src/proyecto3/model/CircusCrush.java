@@ -7,7 +7,7 @@ package proyecto3.model;
 
 /**
  *
- * @author Claudia
+ * @author Claudia Provoste y Samuel Paicil
  */
 public class CircusCrush {
     
