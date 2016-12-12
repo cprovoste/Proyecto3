@@ -28,7 +28,7 @@ public class CircusCrush {
         
         this.bloques = new Bloque[cantidadBloquesHorizontales][cantidadBloquesVerticales];
         int x = (width - cantidadBloquesHorizontales*ANCHO_BLOQUE)/2;
-        int y = (width - cantidadBloquesHorizontales*ANCHO_BLOQUE)/2;
+        int y = 2*ANCHO_BLOQUE;
         
         for (int i = 0; i < cantidadBloquesHorizontales; i++)
         {

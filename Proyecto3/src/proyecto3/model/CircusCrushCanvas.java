@@ -74,12 +74,13 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
     {
         this.context.clearRect(0, 0, (int)this.getWidth(), (int)this.getHeight());
     
-        this.context.drawImage(Cargador.getImage("png"), 0, 0, this.getWidth(), this.getHeight());
+        this.context.drawImage(Cargador.getImage("background.png"), 0, 0, this.getWidth(), this.getHeight());
         
         
         
         if(this.circusCrush != null)
         {
+            System.out.println("Mundo W: " + circusCrush.getMundo().getWidth() + " Mundo H: " + circusCrush.getMundo().getHeight() +  " ||Ventana W: " + this.getWidth() + " Ventana H: " + this.getHeight());
             Pintador.pintar(this.circusCrush, this.context, circusCrush.getMundo(), new Dimension((int)this.getWidth(), (int)this.getHeight()));
         }
     }

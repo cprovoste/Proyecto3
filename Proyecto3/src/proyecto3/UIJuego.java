@@ -57,8 +57,8 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         CircusCrushCanvas paint = new CircusCrushCanvas();
         panelPrincipal.setCenter(paint);
 
-        paint.widthProperty().bind(panelPrincipal.widthProperty());
-        paint.heightProperty().bind(panelPrincipal.heightProperty());
+        paint.widthProperty().bind(root.widthProperty());
+        paint.heightProperty().bind(root.heightProperty());
 
         Scene scene = new Scene(root, 800, 600);
         super.setScene(scene);
