@@ -5,6 +5,7 @@
  */
 package proyecto3.model;
 
+import java.util.Random;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -39,17 +40,19 @@ public class CircusCrush {
             {
                 
                 Tipo tipo = Tipo.CABALLO;
-                switch(i)
+                Random random = new Random();
+                int number = random.nextInt(5);
+                switch(number)
                 {
-                    case 0: case 6: tipo = Tipo.SOMBRERO; break;
-                    case 1: case 7: tipo = Tipo.CARPA; break;
-                    case 2: case 8: tipo = Tipo.CABALLO; break;
+                    case 0: tipo = Tipo.SOMBRERO; break;
+                    case 1: tipo = Tipo.CARPA; break;
+                    case 2: tipo = Tipo.CABALLO; break;
                     case 3: tipo = Tipo.PALOMITA; break;
                     case 4: tipo = Tipo.TICKET; break;
                     case 5: tipo = Tipo.GLOBO; break;
                 }
                 
-                Bloque bloque = new Bloque(x + j*ANCHO_BLOQUE, y + i*ANCHO_BLOQUE, ANCHO_BLOQUE, ANCHO_BLOQUE, tipo);
+                Bloque bloque = new Bloque(x + j*ANCHO_BLOQUE, y + i*ANCHO_BLOQUE, ANCHO_BLOQUE, ANCHO_BLOQUE, tipo,number);
                 this.bloques[i][j] = bloque;
             }
         }
@@ -107,21 +110,63 @@ public class CircusCrush {
         
         System.out.println(c + "," + d);
         
+        int m = 0;
+        System.out.println(d - b);
+        System.out.println(c - a);       
+        
         if(c-a!=d-b)
         {
-            if (c - a >= 1)
+            if (d - b >= 1)
             {
-                
-            } else if (c - a <= -1)
-            {
-                
-            } else if (d - b >= 1)
-            {
-                
+                m = 0;
             } else if (d - b <= -1)
             {
-                
+                m=1;
+            } else if (c - a >= 1)
+            {
+                m=2;
+            } else if (c - a <= -1)
+            {
+                m=3;
             }
+        }
+        else
+        {
+            m=-1;
+        }
+        Bloque aux;
+        switch(m)
+        {
+            case 0:
+                aux = this.bloques[a][b];
+                this.bloques[a][b] = this.bloques[a][b+1];
+                this.bloques[a][b+1] = aux;
+                this.bloques[a][b+1].resetPosicion(a, b+1,x,y);
+                this.bloques[a][b].resetPosicion(a, b,x,y);
+                break;
+            case 1:
+                aux = this.bloques[a][b];
+                this.bloques[a][b] = this.bloques[a][b-1];
+                this.bloques[a][b-1] = aux;
+                this.bloques[a][b-1].resetPosicion(a, b-1,x,y);
+                this.bloques[a][b].resetPosicion(a, b,x,y);
+                break;
+            case 3:
+                aux = this.bloques[a][b];
+                this.bloques[a][b] = this.bloques[a-1][b];
+                this.bloques[a-1][b] = aux;
+                this.bloques[a-1][b].resetPosicion(a-1, b,x,y);
+                this.bloques[a][b].resetPosicion(a, b,x,y);
+                break;
+            case 2:
+                aux = this.bloques[a][b];
+                this.bloques[a][b] = this.bloques[a+1][b];
+                this.bloques[a+1][b] = aux;
+                this.bloques[a+1][b].resetPosicion(a+1, b,x,y);
+                this.bloques[a][b].resetPosicion(a, b,x,y);
+                break;
+            case -1:
+                break;
         }
     }
 }

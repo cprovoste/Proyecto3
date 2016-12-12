@@ -5,6 +5,8 @@
  */
 package proyecto3.model;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
@@ -59,7 +61,6 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
     public void handle(Event event) {
          if( event.getSource() instanceof KeyFrame )
         {
-            this.mover();
             this.repintar();
         }
         if( event.getEventType() == MouseEvent.MOUSE_PRESSED )
@@ -80,13 +81,18 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
             MouseEvent me = (MouseEvent)event;
             int x = (int)me.getX();
             int y = (int)me.getY();
-            if(x>239&&x<552&&y>109&&y<541)
+            if(x>239&&x<550&&y>109&&y<537)
             {
                 int nx = Pintador.convertirXACoordenadasMundo(x, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
                 int ny = Pintador.convertirYACoordenadasMundo(y, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
                 this.punto1 = new Punto(nx, ny);
-                this.circusCrush.calculoMovimientos(punto, punto1);
             }
+            this.circusCrush.calculoMovimientos(punto, punto1);
+             try {
+                 Thread.sleep(400);
+             } catch (InterruptedException ex) {
+                 Logger.getLogger(CircusCrushCanvas.class.getName()).log(Level.SEVERE, null, ex);
+             }
         }
     }
     @Override
@@ -109,11 +115,6 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
             //System.out.println("Mundo W: " + circusCrush.getMundo().getWidth() + " Mundo H: " + circusCrush.getMundo().getHeight() +  " ||Ventana W: " + this.getWidth() + " Ventana H: " + this.getHeight());
             Pintador.pintar(this.circusCrush, this.context, circusCrush.getMundo(), new Dimension((int)this.getWidth(), (int)this.getHeight()));
         }
-    }
-    
-    private void mover()
-    {
-        this.circusCrush.mover();
     }
     
 }
