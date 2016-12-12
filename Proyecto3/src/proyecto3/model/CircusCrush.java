@@ -6,6 +6,8 @@
 package proyecto3.model;
 
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -103,16 +105,12 @@ public class CircusCrush {
         int b = (p.getX()-this.x)/ANCHO_BLOQUE;
         int a = (p.getY()-this.y)/ANCHO_BLOQUE;
         
-        System.out.println(a + "," + b);
         
         int d = (p1.getX()-this.x)/ANCHO_BLOQUE;
         int c = (p1.getY()-this.y)/ANCHO_BLOQUE;
         
-        System.out.println(c + "," + d);
         
-        int m = 0;
-        System.out.println(d - b);
-        System.out.println(c - a);       
+        int m = 0;      
         
         if(c-a!=d-b)
         {
@@ -143,13 +141,34 @@ public class CircusCrush {
                 this.bloques[a][b+1] = aux;
                 this.bloques[a][b+1].resetPosicion(a, b+1,x,y);
                 this.bloques[a][b].resetPosicion(a, b,x,y);
+                
+                
+                if(this.comprobacionLineas(a,b)==false&&this.comprobacionLineas(a, b+1)==false)
+                {
+                    aux = this.bloques[a][b];
+                    this.bloques[a][b] = this.bloques[a][b+1];
+                    this.bloques[a][b+1] = aux;
+                    this.bloques[a][b+1].resetPosicion(a, b+1,x,y);
+                    this.bloques[a][b].resetPosicion(a, b,x,y);
+                }
                 break;
+                
+                
             case 1:
                 aux = this.bloques[a][b];
                 this.bloques[a][b] = this.bloques[a][b-1];
                 this.bloques[a][b-1] = aux;
                 this.bloques[a][b-1].resetPosicion(a, b-1,x,y);
                 this.bloques[a][b].resetPosicion(a, b,x,y);
+                
+                if(this.comprobacionLineas(a,b)==false&&this.comprobacionLineas(a, b-1)==false)
+                {
+                    aux = this.bloques[a][b];
+                    this.bloques[a][b] = this.bloques[a][b-1];
+                    this.bloques[a][b-1] = aux;
+                    this.bloques[a][b-1].resetPosicion(a, b-1,x,y);
+                    this.bloques[a][b].resetPosicion(a, b,x,y);
+                }
                 break;
             case 3:
                 aux = this.bloques[a][b];
@@ -157,6 +176,16 @@ public class CircusCrush {
                 this.bloques[a-1][b] = aux;
                 this.bloques[a-1][b].resetPosicion(a-1, b,x,y);
                 this.bloques[a][b].resetPosicion(a, b,x,y);
+                
+                
+                if(this.comprobacionLineas(a,b)==false&&this.comprobacionLineas(a-1, b)==false)
+                {
+                    aux = this.bloques[a][b];
+                    this.bloques[a][b] = this.bloques[a-1][b];
+                    this.bloques[a-1][b] = aux;
+                    this.bloques[a-1][b].resetPosicion(a-1, b,x,y);
+                    this.bloques[a][b].resetPosicion(a, b,x,y);
+                }
                 break;
             case 2:
                 aux = this.bloques[a][b];
@@ -164,11 +193,70 @@ public class CircusCrush {
                 this.bloques[a+1][b] = aux;
                 this.bloques[a+1][b].resetPosicion(a+1, b,x,y);
                 this.bloques[a][b].resetPosicion(a, b,x,y);
+                
+
+                
+                if(!this.comprobacionLineas(a,b)&&!this.comprobacionLineas(a+1, b))
+                {
+                    aux = this.bloques[a][b];
+                    this.bloques[a][b] = this.bloques[a+1][b];
+                    this.bloques[a+1][b] = aux;
+                    this.bloques[a+1][b].resetPosicion(a+1, b,x,y);
+                    this.bloques[a][b].resetPosicion(a, b,x,y);
+                    System.out.println(this.comprobacionLineas(a,b));
+                    System.out.println(this.comprobacionLineas(a+1,b));
+                }
                 break;
             case -1:
                 break;
         }
+    }   
+    public boolean comprobacionLineas(int a, int b)
+    {
+        boolean correcto = false;
+    
+        if(a==0)
+        {
+            if(this.bloques[a][b].getTipo().equals(this.bloques[a+1][b].getTipo())&&this.bloques[a+1][b].getTipo().equals(this.bloques[a+2][b].getTipo()))
+            {
+                correcto = true;
+            }
+        }
+        else if(a==8)
+        {
+            if(this.bloques[a][b].getTipo().equals(this.bloques[a-1][b].getTipo())&&this.bloques[a-1][b].getTipo().equals(this.bloques[a-2][b].getTipo()))
+            {
+                correcto = true;
+            }
+        }
+        else if(a>0&&a<8)
+        {
+            if(this.bloques[a][b].getTipo().equals(this.bloques[a-1][b].getTipo())&&this.bloques[a][b].getTipo().equals(this.bloques[a+1][b].getTipo()))
+            {
+                correcto = true;
+            }
+        }
+        else if(b==0)
+        {
+            if(this.bloques[a][b].getTipo().equals(this.bloques[a][b+1].getTipo())&&this.bloques[a][b+1].getTipo().equals(this.bloques[a][b+2].getTipo()))
+            {
+                correcto = true;
+            }
+        }
+        else if(b==8)
+        {
+            if(this.bloques[a][b].getTipo().equals(this.bloques[a][b-1].getTipo())&&this.bloques[a][b-1].getTipo().equals(this.bloques[a][b-2].getTipo()))
+            {
+                correcto = true;
+            }
+        }
+        else if(b>0&&b<8)
+        {
+            if(this.bloques[a][b].getTipo().equals(this.bloques[a][b-1].getTipo())&&this.bloques[a][b].getTipo().equals(this.bloques[a][b+1].getTipo()))
+            {
+                correcto = true;
+            }
+        }
+        return correcto;
     }
 }
-     
-    

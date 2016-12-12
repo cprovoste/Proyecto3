@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/proyecto3/painter/Pintador.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>21</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Main.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/painter/Cargador.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/painter/Pintador.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/CircusCrushCanvas.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Bloque.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/UIPuntajes.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Tipo.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/CircusCrush.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/UIRegistro.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Dimension.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/UIJuego.java</file>
-            <file>file:/C:/Users/Claudia/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Cuadrado.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/Partida.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/CircusCrushCanvas.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Dimension.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Tipo.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/CircusCrush.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Cuadrado.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Proyecto3/Proyecto3/src/proyecto3/model/Bloque.java</file>
         </group>
     </open-files>
 </project-private>
