@@ -41,9 +41,9 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
 
         HBox topPane = new HBox();
         topPane.setBackground( new Background(new BackgroundFill(new Color(190/255.0, 71/255.0, 71/255.0, 1), CornerRadii.EMPTY, Insets.EMPTY)));
-        Image image = Cargador.getImage("banner.png");
-        Label logo = new Label("", new ImageView(image));
-        topPane.getChildren().addAll(logo);
+       // Image image = Cargador.getImage("banner.png");
+       // Label logo = new Label("", new ImageView(image));
+       // topPane.getChildren().addAll(logo);
         panelPrincipal.setTop(topPane);
 
         HBox panelBotones = new HBox(10);

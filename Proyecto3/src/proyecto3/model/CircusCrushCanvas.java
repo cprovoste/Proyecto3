@@ -74,7 +74,7 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
     {
         this.context.clearRect(0, 0, (int)this.getWidth(), (int)this.getHeight());
     
-        this.context.drawImage(Cargador.getImage("background.png"), 0, 0, this.getWidth(), this.getHeight());
+        this.context.drawImage(Cargador.getImage("png"), 0, 0, this.getWidth(), this.getHeight());
         
         
         
