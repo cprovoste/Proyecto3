@@ -22,11 +22,15 @@ public class Pintador {
     static public void pintar( CircusCrush juego, GraphicsContext context, Dimension mundo, Dimension ventana )
     {
         //esto debes cambiarlo para que funcione con arreglos bidimensionales.
-        Iterator<Bloque> bloques = juego.iterator();
-        while( bloques.hasNext() )
+        Bloque bloques[][] = juego.getBloques();
+        for (int i = 0; i <juego.getCantidadBloquesHorizontales(); i++) 
         {
-            Bloque bloque = bloques.next();
-            Pintador.dibujar(bloque, context, mundo, ventana);
+            for (int j = 0; j < juego.getCantidadBloquesVerticales(); j++) 
+            {
+                Bloque bloque = bloques[i][j];
+                Pintador.dibujar(bloque, context, mundo, ventana);
+            }
+            
         }
         
     }

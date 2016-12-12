@@ -16,13 +16,15 @@ public class CircusCrush {
     
     private Dimension mundo;
     private Bloque bloques[][];   
+    private int cantidadBloquesHorizontales;
+    private int cantidadBloquesVerticales;
     
     public CircusCrush(int width,  int height)
     {
         this.mundo = new Dimension(width, height);
         
-        int cantidadBloquesHorizontales = 5;
-        int cantidadBloquesVerticales = 8;
+        this.cantidadBloquesHorizontales = 5;
+        this.cantidadBloquesVerticales = 8;
         
         this.bloques = new Bloque[cantidadBloquesHorizontales][cantidadBloquesVerticales];
         int x = (width - cantidadBloquesHorizontales*ANCHO_BLOQUE)/2;
@@ -59,5 +61,36 @@ public class CircusCrush {
     {
         
     }
+
+    public Bloque[][] getBloques() 
+    {
+        return bloques;
+    }
+
+    public void setBloques(Bloque[][] bloques) 
+    {
+        this.bloques = bloques;
+    }
+
+    public int getCantidadBloquesHorizontales() 
+    {
+        return cantidadBloquesHorizontales;
+    }
+
+    public void setCantidadBloquesHorizontales(int cantidadBloquesHorizontales) 
+    {
+        this.cantidadBloquesHorizontales = cantidadBloquesHorizontales;
+    }
+
+    public int getCantidadBloquesVerticales() 
+    {
+        return cantidadBloquesVerticales;
+    }
+
+    public void setCantidadBloquesVerticales(int cantidadBloquesVerticales)
+    {
+        this.cantidadBloquesVerticales = cantidadBloquesVerticales;
+    }
+}
      
-    public 
+    
