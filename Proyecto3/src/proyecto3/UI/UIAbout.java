@@ -24,7 +24,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import proyecto3.Jugador;
 import proyecto3.model.CircusCrushCanvas;
 import proyecto3.painter.Cargador;
 /**

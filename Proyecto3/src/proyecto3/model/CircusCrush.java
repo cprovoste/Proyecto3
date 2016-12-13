@@ -9,7 +9,9 @@
 
 package proyecto3.model;
 
+import java.util.ArrayList;
 import java.util.Random;
+import proyecto3.Partida;
 
 /**
  *
@@ -20,16 +22,19 @@ public class CircusCrush {
     static private final int ANCHO_BLOQUE = 64;
     
     private Dimension mundo;
+    private Partida partida;
     private Bloque bloques[][];   
     private int cantidadBloquesHorizontales;
     private int cantidadBloquesVerticales;
     private int x;
     private int y;
     private boolean habemusEliminado = false;
+    
     public CircusCrush(int width,  int height)
     {
         this.mundo = new Dimension(width, height);
         
+        this.partida = new Partida(5);
         this.cantidadBloquesHorizontales = 5;
         this.cantidadBloquesVerticales = 5;
         
@@ -228,6 +233,7 @@ public class CircusCrush {
             this.eliminadorBloques();
             this.limpiadorBloques();
             this.rellenarBloques();
+            this.partida.aumentarPuntaje();
             this.habemusEliminado = false;
         }
     }   
@@ -395,6 +401,16 @@ public class CircusCrush {
     public void setHabemusEliminado(boolean habemusEliminado) 
     {
         this.habemusEliminado = habemusEliminado;
+    }
+
+    public Partida getPartida() 
+    {
+        return partida;
+    }
+
+    public void setPartida(Partida partida) 
+    {
+        this.partida = partida;
     }
     
 }

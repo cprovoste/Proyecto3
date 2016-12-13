@@ -10,6 +10,7 @@ package proyecto3.UI;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -36,7 +37,7 @@ public class UIPuntajes extends Stage implements EventHandler {
     
     public UIPuntajes() {
     
-        super.setTitle("");
+        super.setTitle("Highscores");
         StackPane root = new StackPane();
         
         BorderPane panelPrincipal = new BorderPane();
@@ -74,6 +75,11 @@ public class UIPuntajes extends Stage implements EventHandler {
         puntajeNivel.setMinWidth(200);
         puntajeNivel.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
         tableNivel.getColumns().addAll(nombreNivel, fechaNivel, puntajeNivel);
+        
+        panelPrincipal.setCenter(panelCentral);
+        root.getChildren().add(panelPrincipal);
+        Scene scene = new Scene(root, 600, 400);
+        super.setScene(scene);
     }
 
     @Override

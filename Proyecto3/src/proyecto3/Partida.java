@@ -12,12 +12,15 @@ package proyecto3;
  */
 public class Partida {
 
+    private String nombreJugador;
     private int vidas;
+    private int puntaje;
     
     public Partida(int vidas) {
             
+        this.nombreJugador = nombreJugador;
         this.vidas = vidas;
-        
+        this.puntaje = puntaje;
     }
 
     public int getVidas() {
@@ -27,6 +30,26 @@ public class Partida {
     public void setVidas(int vidas) {
         this.vidas = vidas;
     }
+
+    public String getNombreJugador() {
+        return nombreJugador;
+    }
+
+    public void setNombreJugador(String nombreJugador) {
+        this.nombreJugador = nombreJugador;
+    }
+
+    public int getPuntaje() {
+        return puntaje;
+    }
+
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
     
+    public void aumentarPuntaje()
+    {
+        this.puntaje =+ 100;
+    }
 
 }

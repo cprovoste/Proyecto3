@@ -7,6 +7,9 @@ package proyecto3.painter;
 
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import proyecto3.model.Bloque;
 import proyecto3.model.Dimension;
 import proyecto3.model.CircusCrush;
@@ -26,7 +29,7 @@ public class Pintador {
             for (int j = 0; j < juego.getCantidadBloquesVerticales(); j++) 
             {
                 Bloque bloque = bloques[i][j];
-                Pintador.dibujar(bloque, context, mundo, ventana);
+                Pintador.dibujar(bloque, context, mundo, ventana, juego);
             }
             
         }
@@ -34,13 +37,24 @@ public class Pintador {
     }
 
     
-    static private void dibujar(Bloque bloque, GraphicsContext context, Dimension mundo, Dimension ventana)
+    static private void dibujar(Bloque bloque, GraphicsContext context, Dimension mundo, Dimension ventana, CircusCrush juego)
     {
         int x = Pintador.convertirXACoordenadasVentana(bloque.getX(), mundo, ventana);
         int y = Pintador.convertirYACoordenadasVentana(bloque.getY(), mundo, ventana);
         int ancho = Pintador.convertirXACoordenadasVentana(bloque.getWidth(), mundo, ventana);
         int alto = Pintador.convertirYACoordenadasVentana(bloque.getHeight(), mundo, ventana);
         context.drawImage(Cargador.getImage( bloque.getTipo().getFilename()), x, y, ancho, alto);
+        
+        //20 12 /481 10
+        context.setFill( Color.RED );
+        context.setStroke( Color.BLACK );
+        context.setLineWidth(2);
+        int nt = Pintador.convertirXACoordenadasVentana(18, mundo, ventana);
+        Font fuente = Font.font( "Arial", FontWeight.BOLD, nt );
+        int nx = Pintador.convertirXACoordenadasVentana(20, mundo, ventana);
+        int ny = Pintador.convertirYACoordenadasVentana(12, mundo, ventana);
+        context.setFont( fuente );
+        context.fillText( "Puntaje: " + juego.getPartida().getPuntaje(), ny, nx );
     }
     
     
