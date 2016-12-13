@@ -234,7 +234,10 @@ public class CircusCrush {
             this.limpiadorBloques();
             this.rellenarBloques();
             this.partida.aumentarPuntaje();
-            this.partida.reducirVida();
+            if(this.existenMovimientos()==false)
+            {
+                this.partida.reducirVida();
+            }
             this.habemusEliminado = false;
         }
     }   
@@ -333,6 +336,246 @@ public class CircusCrush {
         return correcto;
     }
     
+    public boolean existenMovimientos()
+    {
+        for(int i=0; i<5; i++)
+        {
+            for(int j = 0 ; j< 4 ; j++)
+            {
+                if(this.bloques[i][j].getTipo().equals(this.bloques[i][j+1]))
+                {
+                    
+                    if(this.horizontalA(i, j, i, j+1) == true )
+                    {
+                        return true;
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        for(int i =0 ; i<5;i++)
+        {
+            for(int j = 0 ; j < 3  ;j ++)
+            {
+                if(this.bloques[i][j].getTipo().equals(this.bloques[i][j+2]))
+                {
+                    
+                    if(this.horizontalB(i, j, i, j+2) == true )
+                    {
+                        return true;
+                    }
+                }
+            }
+
+        }
+         for(int j=0; j<5; j++)
+        {
+            for(int i = 0 ; i< 4 ; i++)
+            {
+                 if(this.bloques[i][j].getTipo().equals(this.bloques[i+1][j]))
+                {
+                    
+                    if(this.verticalA(i, j, i+1, j) == true )
+                    {
+                        return true;
+                    }
+                    
+                }
+                
+            }
+            
+        }
+         
+         for(int j=0; j<5; j++)
+        {
+            for(int i = 0 ; i< 3 ; i++)
+            {
+                 if(this.bloques[i][j].getTipo().equals(this.bloques[i+2][j]))
+                {
+                    
+                    if(this.verticalB(i, j, i+2, j) == true )
+                    {
+                        return true;
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        
+        return false;
+    }
+    
+    public boolean horizontalA(int a, int b, int c, int d)
+    {
+        boolean posible = false;
+      
+        if(a-1>=0&&a-1<=4&&b-1>=0&&b-1<=4)
+        {
+            if(this.bloques[a][b].getTipo().equals(this.bloques[a-1][b-1]))
+            {
+                posible = true;
+            }
+        }
+        if(b-2>=0&&b-2<=4){
+            if(this.bloques[a][b].getTipo().equals(this.bloques[a][b-2]))
+            {
+                posible = true;
+            }
+            
+        }
+        
+        if(a+1>=0&&a+1<=4&&b-1>=0&&b-1<=4){
+            
+           if( this.bloques[a][b].getTipo().equals(this.bloques[a+1][b-1]))
+           {
+                posible = true;
+           }
+        }
+        if(c+1>=0&&c+1<=4&&d+1>=0&&d+1<=4)
+        {
+           if( this.bloques[c][d].getTipo().equals(this.bloques[c+1][d+1]))
+           {
+               posible = true;
+           }
+        }
+           
+        if(d+2>=0&&d+2<=4)
+        {
+            if( this.bloques[c][d].getTipo().equals(this.bloques[c][d+2]))
+            {
+                 posible = true;
+            }
+        }
+            
+        if(c-1>=0&&c-1<=4&&d+1>=0&&d+1<=4)
+        {
+            if( this.bloques[c][d].getTipo().equals(this.bloques[c-1][d+1]))
+            {
+                 posible = true;
+            }
+        }
+           
+           
+            
+        return posible;
+        
+    }
+    
+     public boolean horizontalB(int a, int b, int c, int d)
+     {
+        boolean posible = false;
+         
+         if(a+1>=0&&a+1<=4&&b+1>=0&&b+1<=4)
+         {
+             if(this.bloques[a][b].getTipo().equals(this.bloques[a+1][b+1]))
+             {
+                 posible = true;
+             }
+         }
+
+         if(c-1>=0&&c-1<=4&&d-1>=0&&d-1<=4)
+         {
+             
+             if(this.bloques[c][b].getTipo().equals(this.bloques[c-1][d-1]))
+             {
+                  posible = true;
+             }
+         }
+         
+         
+         
+         return posible;
+     }
+     
+     public boolean verticalA(int a, int b, int c, int d)
+     {
+          boolean posible = false;
+          
+          if(a+1>=0&&a+1<=4&&b-1>=0&&b-1<=4)
+          {
+              if( this.bloques[a][b].getTipo().equals(this.bloques[a+1][b-1]))
+              {
+                  posible = true;
+             
+              }
+          }
+          if(a+2>=0&&a+2<=4)
+          {
+              if(this.bloques[a][b].getTipo().equals(this.bloques[a+2][b]))
+              {
+                  posible = true;
+             
+              }
+          }
+          if(a+1>=0&&a+1<=4&&b+1>=0&&b+1<=4)
+          {
+              if(  this.bloques[a][b].getTipo().equals(this.bloques[a+1][b+1]))
+              {
+                  posible = true;
+             
+              }
+          }
+          if(c-1>=0&&c-1<=4&&d-1>=0&&d-1<=4)
+          {
+              if( this.bloques[c][d].getTipo().equals(this.bloques[c-1][d-1]))
+              {
+                  posible = true;
+             
+              }
+          }
+          if(c-2>=0&&c-2<=4)
+          {
+              if(  this.bloques[c][d].getTipo().equals(this.bloques[c-2][d]))
+              {
+                  posible = true;
+             
+              }
+          }
+          if(c-1>=0&&c-2>=4&&d+1>=0&&d+1<=4)
+          {
+              if(this.bloques[c][d].getTipo().equals(this.bloques[c-1][d+1]))
+              {
+                  posible = true;
+             
+              }
+          }
+                          
+         return posible;
+     }
+     
+      public boolean verticalB(int a, int b, int c, int d)
+      {
+         boolean posible = false;
+          
+         if(a-1>=0&&a-1<=4&&b-1>=0&&b-1<=4)
+         {
+             if(this.bloques[a][b].getTipo().equals(this.bloques[a-1][b-1]))
+             {
+                 posible = true;
+             }
+         }
+         
+         if(c+1>=0&&c+1<=4&&d+1>=0&&d+1<=4)
+         {
+             if(this.bloques[c][d].getTipo().equals(this.bloques[c+1][d+1]))
+             {
+                 posible = true;
+             }
+         }
+         
+                 
+         
+          
+         return posible;
+      }
+  
+ 
     public void eliminadorBloques()
     {
         for(int i=0 ; i<this.cantidadBloquesHorizontales;i++)
