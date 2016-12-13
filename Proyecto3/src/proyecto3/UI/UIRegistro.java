@@ -5,6 +5,7 @@
 
 package proyecto3.UI;
 
+import java.util.ArrayList;
 import javafx.geometry.Insets;
 
 import javafx.scene.Scene;
@@ -27,7 +28,10 @@ import javafx.scene.layout.VBox;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.text.Font;
-import proyecto3.Jugador;
+import proyecto3.Partida;
+import proyecto3.model.CircusCrush;
+
+import proyecto3.painter.Cargador;
 /**
  *
  * @author Claudia Provoste y Samuel Paicil
@@ -37,12 +41,18 @@ public class UIRegistro extends Stage implements EventHandler {
     private Button agregar;
     private TextField nombreTF;
     private UIJuego principal;
+    
 
     public UIRegistro(UIJuego principal) {
         
         this.principal = principal;
         super.setTitle("Registro");
         StackPane root = new StackPane();
+        
+        Label background = new Label("", new ImageView(Cargador.getImage("background.png")));
+        Label ayuda = new Label("", new ImageView(Cargador.getImage("ayuda.png")));
+
+        root.getChildren().addAll(background, ayuda);
 
         BorderPane panelPrincipal = new BorderPane();
 
@@ -105,21 +115,20 @@ public class UIRegistro extends Stage implements EventHandler {
         this.agregar.setOnAction(this);
     }
 
-     public void agregarPartida()
+ 
+
+     public void agregarPartida(Partida partida)
     {
         String nombre = this.nombreTF.getText();
-      //  String score =
-      // String email = 
-        Jugador jugador = new Jugador(nombre);
-        this.principal.agregarJugador(jugador);
-        
+        partida.setNombreJugador(nombre);
+        this.principal.addPartida(partida);
     }
     
     @Override
     public void handle(Event event) {
          if( event.getSource() == this.agregar )
         {
-            agregarPartida();
+            agregarPartida(this.principal.getPaint().getCircusCrush().getPartida());
         } 
     }
     
