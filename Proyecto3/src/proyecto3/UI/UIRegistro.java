@@ -3,7 +3,7 @@
  * Ventana que permite solo el ingreso del nombre, dentro de la partida.
  */
 
-package proyecto3;
+package proyecto3.UI;
 
 import javafx.geometry.Insets;
 
@@ -26,6 +26,7 @@ import javafx.scene.layout.VBox;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import proyecto3.Jugador;
 /**
  *
  * @author Claudia Provoste y Samuel Paicil

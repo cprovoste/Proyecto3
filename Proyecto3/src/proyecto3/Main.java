@@ -4,6 +4,7 @@
  */
 package proyecto3;
 
+import proyecto3.UI.UIJuego;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.stage.Stage;

@@ -35,7 +35,7 @@ public class CircusCrush {
         
         this.bloques = new Bloque[cantidadBloquesHorizontales][cantidadBloquesVerticales];
         x = (width - cantidadBloquesHorizontales*ANCHO_BLOQUE)/2;
-        y = 2*ANCHO_BLOQUE;
+        y = ANCHO_BLOQUE;
         
         for (int i = 0; i < cantidadBloquesHorizontales; i++)
         {
@@ -45,6 +45,23 @@ public class CircusCrush {
             }
         }
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+    
     
      public Dimension getMundo()
     {

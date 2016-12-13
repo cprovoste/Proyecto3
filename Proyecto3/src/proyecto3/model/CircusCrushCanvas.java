@@ -60,7 +60,7 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
             MouseEvent me = (MouseEvent)event;
             int x = (int)me.getX();
             int y = (int)me.getY();
-            if(x>81&&x<322&&y>110&&y<349) //pésimo!!! (es más que malo)
+            if(x>81&&x<322&&y>110&&y<349)
             {
                 int nx = Pintador.convertirXACoordenadasMundo(x, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));
                 int ny = Pintador.convertirYACoordenadasMundo(y, circusCrush.getMundo(),new Dimension((int)this.getWidth(), (int)this.getHeight()));

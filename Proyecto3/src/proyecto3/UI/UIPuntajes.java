@@ -5,7 +5,7 @@
  * Una es de los puntajes generales y la otra por nivel.
  */
 
-package proyecto3;
+package proyecto3.UI;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -24,6 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import proyecto3.Partida;
 /**
  *
  * @author Claudia Provoste y Samuel Paicil
