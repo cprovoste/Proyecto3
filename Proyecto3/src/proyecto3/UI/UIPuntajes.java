@@ -63,9 +63,12 @@ public class UIPuntajes extends Stage implements EventHandler {
         TableColumn puntajeGeneral = new TableColumn("Puntaje");
         puntajeGeneral.setMinWidth(200);
         puntajeGeneral.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
+        
         tableGeneral.getColumns().addAll(nombreGeneral, puntajeGeneral);
         
+        
         this.actualizarDatosTabla();
+        
         
         TableColumn nombreNivel = new TableColumn("Nombre");
         nombreNivel.setMinWidth(100);
@@ -88,11 +91,18 @@ public class UIPuntajes extends Stage implements EventHandler {
          public void actualizarDatosTabla(){
          
          ObservableList<Partida> items = this.tableGeneral.getItems();
-         
-         for( int i = 0; i < this.principal.sizePartida() ; i++)
+            
          {
-             items.add(this.principal.getPartida(i));
-              System.out.println(this.principal.getPartida(i).getNombreJugador());
+            for( int i = 0; i < this.principal.sizePartida() ; i++)
+            {
+                
+                
+                items.add(this.principal.getPartida(i));
+                System.out.println(this.principal.getPartida(i).getNombreJugador());
+             
+               // this.tableGeneral.setItems(items);
+              
+            }
          }
          
          

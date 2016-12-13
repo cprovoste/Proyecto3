@@ -16,7 +16,7 @@ public class Partida {
     private int vidas;
     private int puntaje;
     
-    public Partida(int vidas) {
+    public Partida(String nombreJugador, int vidas, int puntaje) {
             
         this.nombreJugador = nombreJugador;
         this.vidas = vidas;

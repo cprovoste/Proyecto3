@@ -34,7 +34,7 @@ public class CircusCrush {
     {
         this.mundo = new Dimension(width, height);
         
-        this.partida = new Partida(5);
+        this.partida = new Partida("", 5,0);
         this.cantidadBloquesHorizontales = 5;
         this.cantidadBloquesVerticales = 5;
         

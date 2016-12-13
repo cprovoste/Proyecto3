@@ -5,6 +5,8 @@
 
 package proyecto3.UI;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -17,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
@@ -28,7 +31,10 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import proyecto3.Partida;
 import proyecto3.model.CircusCrushCanvas;
+import proyecto3.model.Dimension;
+import proyecto3.model.Punto;
 import proyecto3.painter.Cargador;
+import proyecto3.painter.Pintador;
 /**
  *
  * @author Claudia Provoste y Samuel Paicil
@@ -44,6 +50,8 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
     public UIJuego(){
         
         partidas = new ArrayList<Partida>();
+        paint = new CircusCrushCanvas(this);
+        
         
         super.setTitle("Circus Crush");
         StackPane root = new StackPane();
@@ -55,7 +63,8 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         topPane.setBackground( new Background(new BackgroundFill(new Color(190/255.0, 71/255.0, 71/255.0, 1), CornerRadii.EMPTY, Insets.EMPTY)));
         topPane.setPadding( new Insets(10,0,0,0) );
         
-        paint = new CircusCrushCanvas();
+        
+       
         
         Partida partida = this.paint.getCircusCrush().getPartida();
 
@@ -125,7 +134,6 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
     }
     
     
-    
     @Override
     public void handle(Event event) {
         
@@ -137,17 +145,11 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         }
         if (event.getSource() == this.puntajes )
         {
-            UIRegistro stage = new UIRegistro(this);
+            UIPuntajes stage = new UIPuntajes(this);
             stage.show();
         }
         
-        if (this.paint.getCircusCrush().getPartida().getVidas() == 0)
-        {
-            System.out.println(this.paint.getCircusCrush().getPartida().getVidas());
-            UIRegistro stage = new UIRegistro(this);
-            stage.show();
-            
-        }
+ 
 
     }
 

@@ -21,6 +21,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.Duration;
+import proyecto3.UI.UIJuego;
+import proyecto3.UI.UIRegistro;
 import proyecto3.model.Dimension;
 import proyecto3.model.CircusCrush;
 import proyecto3.painter.Cargador;
@@ -35,12 +37,13 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
     private final GraphicsContext context;
     private Punto punto;
     private Punto punto1;
+    private UIJuego principal;
     
-    public CircusCrushCanvas()
+    public CircusCrushCanvas(UIJuego principal)
     {
         this.circusCrush = new CircusCrush(500, 500);
         this.context = super.getGraphicsContext2D();
-        
+        this.principal = principal;
         
         this.addEventHandler(MouseEvent.MOUSE_PRESSED, this);
         this.addEventHandler(MouseEvent.MOUSE_DRAGGED, this);
@@ -90,6 +93,14 @@ public class CircusCrushCanvas extends javafx.scene.canvas.Canvas implements Eve
                  Thread.sleep(400);
              } catch (InterruptedException ex) {
                  Logger.getLogger(CircusCrushCanvas.class.getName()).log(Level.SEVERE, null, ex);
+             }
+             
+            if (this.getCircusCrush().getPartida().getVidas() == 0)
+             {
+            System.out.println(this.getCircusCrush().getPartida().getVidas());
+            UIRegistro stage = new UIRegistro(this.principal);
+            stage.show();
+            
              }
         }
     }
