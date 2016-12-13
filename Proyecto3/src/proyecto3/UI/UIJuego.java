@@ -52,14 +52,14 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         
         Label vidas = new Label("Vidas: ");
         vidas.setTextFill(Color.web("#fff8d6"));
-        vidas.setFont(new Font("Helvetica", 15));
-        //vidas.setFont(Font.loadFont("file:proyecto3/fonts/Lato-Bold.ttf", 120));
+        vidas.setFont(Font.loadFont(getClass().getResourceAsStream("/proyecto3/fonts/Lato-Bold.ttf"), 15)); 
         vidas.setPadding(new Insets(60,0,0,0));
         
         
         Label puntaje = new Label("Puntaje: ");
         puntaje.setTextFill(Color.web("#fff8d6"));
-        puntaje.setPadding(new Insets(50,0,0,70));
+        puntaje.setFont(Font.loadFont(getClass().getResourceAsStream("/proyecto3/fonts/Lato-Bold.ttf"), 15));
+        puntaje.setPadding(new Insets(50,0,0,20));
         
         Image image = Cargador.getImage("about.png");
         //Label about = new Label("", new ImageView(image));
@@ -73,7 +73,7 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         topPane.setRight(this.about);
         panelPrincipal.setTop(topPane);
 
-        HBox panelBotones = new HBox(10);
+        HBox panelBotones = new HBox();
         this.registro = new Button("registro");
         this.registro.setPrefWidth(100);
         this.puntaje = new Button("puntaje");
