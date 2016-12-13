@@ -26,26 +26,29 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import proyecto3.Partida;
+import proyecto3.painter.Cargador;
 /**
  *
  * @author Claudia Provoste y Samuel Paicil
  */
 public class UIPuntajes extends Stage implements EventHandler {
     
+    private UIJuego principal;
     private TableView<Partida> tableGeneral;
     private TableView<Partida> tableNivel;
     
-    public UIPuntajes() {
-    
+    public UIPuntajes(UIJuego ventana) {
+        
+        this.principal = ventana;
         super.setTitle("Highscores");
         StackPane root = new StackPane();
         
         BorderPane panelPrincipal = new BorderPane();
         
         HBox topPane = new HBox();
-        topPane.setBackground( new Background(new BackgroundFill(new Color(190/255.0, 0, 102/255.0, 1), CornerRadii.EMPTY, Insets.EMPTY)));
-        Image image = new Image(getClass().getResourceAsStream("Sin título2.png"));
-        Label logo = new Label("", new ImageView(image));
+        topPane.setBackground( new Background(new BackgroundFill(new Color(190/255.0, 71/255.0, 71/255.0, 1), CornerRadii.EMPTY, Insets.EMPTY)));
+        System.out.println("PASA");
+        Label logo = new Label("", new ImageView(Cargador.getImage("Sin título2.png")));
         topPane.getChildren().add(logo);
         panelPrincipal.setTop(topPane);
         
@@ -57,27 +60,25 @@ public class UIPuntajes extends Stage implements EventHandler {
         TableColumn nombreGeneral = new TableColumn("Nombre");
         nombreGeneral.setMinWidth(100);
         nombreGeneral.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        TableColumn fechaGeneral = new TableColumn("Fecha");
-        fechaGeneral.setMinWidth(100);
-        fechaGeneral.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         TableColumn puntajeGeneral = new TableColumn("Puntaje");
         puntajeGeneral.setMinWidth(200);
         puntajeGeneral.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
-        tableGeneral.getColumns().addAll(nombreGeneral, fechaGeneral, puntajeGeneral);
+        tableGeneral.getColumns().addAll(nombreGeneral, puntajeGeneral);
         
         TableColumn nombreNivel = new TableColumn("Nombre");
         nombreNivel.setMinWidth(100);
         nombreNivel.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        TableColumn fechaNivel = new TableColumn("Fecha");
-        fechaNivel.setMinWidth(100);
-        fechaNivel.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         TableColumn puntajeNivel = new TableColumn("Puntaje");
         puntajeNivel.setMinWidth(200);
         puntajeNivel.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
-        tableNivel.getColumns().addAll(nombreNivel, fechaNivel, puntajeNivel);
+        tableNivel.getColumns().addAll(nombreNivel, puntajeNivel);
+    
+        panelCentral.setPadding(new Insets(0,0,0,60));
         
         panelPrincipal.setCenter(panelCentral);
         root.getChildren().add(panelPrincipal);
+        
+        
         Scene scene = new Scene(root, 600, 400);
         super.setScene(scene);
     }
@@ -86,4 +87,5 @@ public class UIPuntajes extends Stage implements EventHandler {
     public void handle(Event event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }

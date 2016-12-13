@@ -55,6 +55,14 @@ public class Pintador {
         int ny = Pintador.convertirYACoordenadasVentana(12, mundo, ventana);
         context.setFont( fuente );
         context.fillText( "Puntaje: " + juego.getPartida().getPuntaje(), ny, nx );
+        
+        context.setFill( Color.RED );
+        context.setStroke( Color.BLACK );
+        context.setLineWidth(2);
+        int nx2 = Pintador.convertirXACoordenadasVentana(56, mundo, ventana);
+        int ny2 = Pintador.convertirYACoordenadasVentana(12, mundo, ventana);
+        context.setFont( fuente );
+        context.fillText( "Vidas: " + juego.getPartida().getVidas(), ny2, nx2 );
     }
     
     

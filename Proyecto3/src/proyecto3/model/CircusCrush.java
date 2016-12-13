@@ -234,6 +234,7 @@ public class CircusCrush {
             this.limpiadorBloques();
             this.rellenarBloques();
             this.partida.aumentarPuntaje();
+            this.partida.reducirVida();
             this.habemusEliminado = false;
         }
     }   

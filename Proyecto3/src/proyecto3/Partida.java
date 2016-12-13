@@ -49,7 +49,12 @@ public class Partida {
     
     public void aumentarPuntaje()
     {
-        this.puntaje =+ 100;
+        this.puntaje += 100;
+    }
+    
+    public void reducirVida()
+    {
+        this.vidas -= 1;
     }
 
 }

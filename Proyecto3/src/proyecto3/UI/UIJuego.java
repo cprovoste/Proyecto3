@@ -82,11 +82,6 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         topPane.setRight(this.about);
         panelPrincipal.setTop(topPane);
 
-        HBox panelBotones = new HBox();
-        this.puntajes = new Button("puntaje");
-        this.puntajes.setPrefWidth(100);
-        panelPrincipal.setBottom(panelBotones);
-
         panelPrincipal.setCenter(paint);
 
         paint.widthProperty().bind(root.widthProperty());
@@ -97,8 +92,7 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         
         this.about.setOnAction(this);
         this.puntajes.setOnAction(this);
-        
-        
+
     }
     
     public int sizePartida() {
@@ -140,7 +134,7 @@ public class UIJuego extends Stage implements EventHandler, ChangeListener {
         }
         if (event.getSource() == this.puntajes )
         {
-            UIPuntajes stage = new UIPuntajes();
+            UIPuntajes stage = new UIPuntajes(this);
             stage.show();
         }
 
