@@ -7,6 +7,7 @@
 
 package proyecto3.UI;
 
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -47,7 +48,6 @@ public class UIPuntajes extends Stage implements EventHandler {
         
         HBox topPane = new HBox();
         topPane.setBackground( new Background(new BackgroundFill(new Color(190/255.0, 71/255.0, 71/255.0, 1), CornerRadii.EMPTY, Insets.EMPTY)));
-        System.out.println("PASA");
         Label logo = new Label("", new ImageView(Cargador.getImage("Sin título2.png")));
         topPane.getChildren().add(logo);
         panelPrincipal.setTop(topPane);
@@ -59,11 +59,13 @@ public class UIPuntajes extends Stage implements EventHandler {
         
         TableColumn nombreGeneral = new TableColumn("Nombre");
         nombreGeneral.setMinWidth(100);
-        nombreGeneral.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        nombreGeneral.setCellValueFactory(new PropertyValueFactory<>("nombreJugador"));
         TableColumn puntajeGeneral = new TableColumn("Puntaje");
         puntajeGeneral.setMinWidth(200);
         puntajeGeneral.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
         tableGeneral.getColumns().addAll(nombreGeneral, puntajeGeneral);
+        
+        this.actualizarDatosTabla();
         
         TableColumn nombreNivel = new TableColumn("Nombre");
         nombreNivel.setMinWidth(100);
@@ -83,6 +85,21 @@ public class UIPuntajes extends Stage implements EventHandler {
         super.setScene(scene);
     }
 
+         public void actualizarDatosTabla(){
+         
+         ObservableList<Partida> items = this.tableGeneral.getItems();
+         
+         for( int i = 0; i < this.principal.sizePartida() ; i++)
+         {
+             items.add(this.principal.getPartida(i));
+              System.out.println(this.principal.getPartida(i).getNombreJugador());
+         }
+         
+         
+     }
+     
+    
+    
     @Override
     public void handle(Event event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

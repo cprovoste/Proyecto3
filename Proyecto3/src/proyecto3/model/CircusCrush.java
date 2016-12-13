@@ -234,7 +234,7 @@ public class CircusCrush {
             this.limpiadorBloques();
             this.rellenarBloques();
             this.partida.aumentarPuntaje();
-            if(this.existenMovimientos()==false)
+            if(this.existenMovimientos()==false&&this.partida.getVidas()>=1)
             {
                 this.partida.reducirVida();
             }
@@ -482,7 +482,7 @@ public class CircusCrush {
          if(c-1>=0&&c-1<=4&&d-1>=0&&d-1<=4)
          {
              
-             if(this.bloques[c][b].getTipo().equals(this.bloques[c-1][d-1]))
+             if(this.bloques[c][d].getTipo().equals(this.bloques[c-1][d-1]))
              {
                   posible = true;
              }
@@ -598,8 +598,11 @@ public class CircusCrush {
             {
                 if(this.bloques[i][j].getEliminado()==true)
                 {
+                    Bloque aux = this.bloques[i][j];
                     this.bloques[i][j]=this.bloques[i-1][j];
-                    this.bloques[i-1][j].setEliminado(true);
+                    this.bloques[i-1][j] = aux;
+                    this.bloques[i-1][j].resetPosicion(i-1, j, x, y);
+                    this.bloques[i][j].resetPosicion(i,j,x,y);
                 }
             }
         }

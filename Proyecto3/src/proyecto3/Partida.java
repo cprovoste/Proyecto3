@@ -54,7 +54,10 @@ public class Partida {
     
     public void reducirVida()
     {
-        this.vidas -= 1;
+        if(vidas >= 1)
+        {
+            this.vidas -= 1;
+        }
     }
 
 }

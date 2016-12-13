@@ -50,9 +50,8 @@ public class UIRegistro extends Stage implements EventHandler {
         StackPane root = new StackPane();
         
         Label background = new Label("", new ImageView(Cargador.getImage("background.png")));
-        Label ayuda = new Label("", new ImageView(Cargador.getImage("ayuda.png")));
-
-        root.getChildren().addAll(background, ayuda);
+    
+        root.getChildren().addAll(background);
 
         BorderPane panelPrincipal = new BorderPane();
 
@@ -61,7 +60,7 @@ public class UIRegistro extends Stage implements EventHandler {
         topPane.setBackground( new Background(new BackgroundFill(new Color(190/255.0, 71/255.0, 71/255.0, 1), CornerRadii.EMPTY, Insets.EMPTY)));
         Label frase = new Label("¡Buen trabajo!");
         frase.setTextFill(Color.web("#fff8d6"));
-        frase.setFont(Font.loadFont(getClass().getResourceAsStream("/proyecto3/fonts/Lato-Bold.ttf"), 15)); 
+        frase.setFont(Font.loadFont(getClass().getResourceAsStream("/proyecto3/fonts/Lato-Bold.ttf"), 30)); 
         frase.setPadding(new Insets(60,0,0,0));
         topPane.getChildren().add(frase);
         panelPrincipal.setTop(topPane);
@@ -74,21 +73,17 @@ public class UIRegistro extends Stage implements EventHandler {
         nombreBox.getChildren().addAll(nombre, nombreTF);
         nombreBox.setSpacing(10);
 
-        Label score = new Label("Score: "); 
+        Label score = new Label("Score: " + this.principal.getPaint().getCircusCrush().getPartida().getPuntaje()); 
         HBox scoreBox = new HBox();
         scoreBox.getChildren().addAll(score);
         scoreBox.setSpacing(55);
 
-        Label fecha = new Label("Fecha: ");
-        HBox fechaBox = new HBox();
-        fechaBox.getChildren().addAll(fecha);
-        fechaBox.setSpacing(103);
 
         VBox orden = new VBox();
-        orden.getChildren().addAll(nombreBox, scoreBox, fechaBox);
+        orden.getChildren().addAll(nombreBox, scoreBox);
         nombreBox.setPadding(new Insets(5, 0, 5, 0));
         scoreBox.setPadding(new Insets(5, 0, 5, 0));
-        fechaBox.setPadding(new Insets(5, 0, 5, 0));
+
 
         panelCentral.setTop(orden);
         panelCentral.setPadding( new Insets(10) );
@@ -121,15 +116,21 @@ public class UIRegistro extends Stage implements EventHandler {
     {
         String nombre = this.nombreTF.getText();
         partida.setNombreJugador(nombre);
+       
         this.principal.addPartida(partida);
+        
     }
     
+
     @Override
     public void handle(Event event) {
          if( event.getSource() == this.agregar )
         {
             agregarPartida(this.principal.getPaint().getCircusCrush().getPartida());
+            UIPuntajes stage = new UIPuntajes(this.principal);
+            stage.show();
         } 
+        
     }
     
 }
