@@ -3,7 +3,7 @@
  * Ventana que permite solo el ingreso del nombre, dentro de la partida.
  */
 
-package proyecto3.UI;
+package prueba;
 
 import javafx.geometry.Insets;
 
@@ -27,18 +27,17 @@ import javafx.scene.layout.VBox;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.text.Font;
-import proyecto3.Jugador;
 /**
  *
  * @author Claudia Provoste y Samuel Paicil
  */
-public class UIRegistro extends Stage implements EventHandler {
+public class MiStage extends Stage implements EventHandler {
     
     private Button agregar;
     private TextField nombreTF;
-    private UIJuego principal;
+    private Main principal;
 
-    public UIRegistro(UIJuego principal) {
+    public MiStage() {
         
         this.principal = principal;
         super.setTitle("Registro");
@@ -51,11 +50,11 @@ public class UIRegistro extends Stage implements EventHandler {
         topPane.setBackground( new Background(new BackgroundFill(new Color(190/255.0, 71/255.0, 71/255.0, 1), CornerRadii.EMPTY, Insets.EMPTY)));
         Label frase = new Label("¡Buen trabajo!");
         frase.setTextFill(Color.web("#fff8d6"));
-        frase.setFont(Font.loadFont(getClass().getResourceAsStream("/proyecto3/fonts/Lato-Bold.ttf"), 15)); 
+       // frase.setFont(Font.loadFont(getClass().getResourceAsStream("/proyecto3/fonts/Lato-Bold.ttf"), 15)); 
         frase.setPadding(new Insets(60,0,0,0));
         topPane.getChildren().add(frase);
         panelPrincipal.setTop(topPane);
-
+        
         BorderPane panelCentral = new BorderPane();
 
         Label nombre = new Label("Nombre: "); 
@@ -72,16 +71,16 @@ public class UIRegistro extends Stage implements EventHandler {
         Label fecha = new Label("Fecha: ");
         HBox fechaBox = new HBox();
         fechaBox.getChildren().addAll(fecha);
-        fechaBox.setSpacing(103);
+        fechaBox.setSpacing(10);
 
         VBox orden = new VBox();
         orden.getChildren().addAll(nombreBox, scoreBox, fechaBox);
-        nombreBox.setPadding(new Insets(5, 0, 5, 0));
-        scoreBox.setPadding(new Insets(5, 0, 5, 0));
-        fechaBox.setPadding(new Insets(5, 0, 5, 0));
+        nombreBox.setPadding(new Insets(5, 0, 10, 0));
+        scoreBox.setPadding(new Insets(5, 0, 10, 0));
+        fechaBox.setPadding(new Insets(5, 0, 10, 0));
 
         panelCentral.setTop(orden);
-        panelCentral.setPadding( new Insets(10) );
+        panelCentral.setPadding( new Insets(50) );
 
         HBox panelBotones = new HBox(10);
         this.agregar = new Button("Agregar");
@@ -105,13 +104,13 @@ public class UIRegistro extends Stage implements EventHandler {
         this.agregar.setOnAction(this);
     }
 
+
      public void agregarPartida()
     {
         String nombre = this.nombreTF.getText();
       //  String score =
       // String email = 
-        Jugador jugador = new Jugador(nombre);
-        this.principal.agregarJugador(jugador);
+      //  this.principal.agregarJugador(jugador);
         
     }
     
